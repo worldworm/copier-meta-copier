@@ -1,0 +1,24 @@
+_subdirectory: template
+_templates_suffix: .jinja2
+_answers_file: .copier-answers.meta-copier.yml
+_exclude: []
+_envops:
+    block_start_string: "(%"
+    block_end_string: "%)"
+    comment_start_string: "(#"
+    comment_end_string: "#)"
+    variable_start_string: "(("
+    variable_end_string: "))"
+
+_tasks:
+  - "[ ! -d .git ] && git init -b main || true"
+  - "git submodule add https://github.com/worldworm/copier-shared-config shared-config"
+
+template_suffix:
+  type: str
+  help: Template suffix (without "-meta")
+
+use_docker:
+  type: bool
+  help: Use Docker?
+  default: true
