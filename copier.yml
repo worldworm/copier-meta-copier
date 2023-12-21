@@ -12,7 +12,7 @@ _envops:
 
 _tasks:
   - "[ ! -d .git ] && git init -b main || true"
-  - "git submodule add https://github.com/worldworm/copier-shared-config shared-config"
+  - "[ ! -d shared-config ] && git submodule add https://github.com/worldworm/copier-shared-config shared-config || true"
 
 template_suffix:
   type: str
